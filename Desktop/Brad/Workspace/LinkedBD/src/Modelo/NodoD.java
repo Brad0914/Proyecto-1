@@ -5,28 +5,28 @@ public class NodoD {
 	private NodoD siguiente;
 	private NodoD Anterior;
 	private ListaDC valor;
-	public TreeItem<String> rama;
+//	public TreeItem<String> rama;
 	
 	
 	 
-	public TreeItem<String> getRama() {
-		return rama;
-	}
+//	public TreeItem<String> getRama() {
+//		return rama;
+//	}
+//
+//	public void setRama(TreeItem<String> rama) {
+//		this.rama = rama;
+//	}
 
-	public void setRama(TreeItem<String> rama) {
-		this.rama = rama;
-	}
-
-	public NodoD(ListaDC valor, String rama) {
-		this.rama = new TreeItem<String>(rama);
+	public NodoD(ListaDC valor) {
+//		this.rama = new TreeItem<String>(rama);
 		this.valor = valor;
 	}
 	
-	public NodoD(ListaDC valor, NodoD siguiente, NodoD Anterior, TreeItem<String> rama) {
+	public NodoD(ListaDC valor, NodoD siguiente, NodoD Anterior) {
 	this.valor = valor;
 	this.siguiente = siguiente;  
 	this.Anterior = Anterior;
-	this.rama = rama;
+//	this.rama = rama;
 	}
 
 	public NodoD getSiguiente() {

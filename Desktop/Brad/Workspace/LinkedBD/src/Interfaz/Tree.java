@@ -25,13 +25,13 @@ public class Tree {
 		tree.setShowRoot(false);
 	}
 	
-	public TreeItem<String> CreateRama(String nombre, TreeItem<String> raizUp){
-		TreeItem<String> rama = new TreeItem<>(nombre);
-		rama.setExpanded(true);
-		raizUp.getChildren().add(rama);
-		return rama;
-		
-	}
+//	public TreeItem<String> CreateRama(String nombre, TreeItem<String> raizUp){
+//		TreeItem<String> rama = new TreeItem<>(nombre);
+//		rama.setExpanded(true);
+//		raizUp.getChildren().add(rama);
+//		return rama;
+//		
+//	}
 	public  TreeItem<String> CreateHoja(TreeItem<String> hoja, TreeItem<String> RamaUp){
 		RamaUp.getChildren().add(hoja);
 		return hoja;

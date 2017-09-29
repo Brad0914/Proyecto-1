@@ -9,20 +9,20 @@ import javafx.scene.control.TreeItem;
 public class ListaDC {
 	private NodoCD primero;
 	private NodoCD ultimo; 
-//	public TreeItem<String> rama;
-//
-//	public TreeItem<String> getRama() {
-//		return rama;
-//	}
-//
-//	public void setRama(TreeItem<String> rama) {
-//		this.rama = rama;
-//	}
+	public TreeItem<String> rama;
 
-	public ListaDC() {
+	public TreeItem<String> getRama() {
+		return rama;
+	}
+
+	public void setRama(TreeItem<String> rama) {
+		this.rama = rama;
+	}
+
+	public ListaDC(String nombre) {
 		this.primero = null;
 		this.ultimo = null;
-//		this.rama = new TreeItem<>(nombre);
+		this.rama = new TreeItem<>(nombre);
 	}
 
 	public boolean isEmpty() {
@@ -37,21 +37,21 @@ public class ListaDC {
 		return ultimo;
 	}
 
-	public void insertarFinal(Lista valor, String nombre) {
+	public void insertarFinal(Lista valor) {
 		if (this.ultimo == null) {
-			this.ultimo = new NodoCD(valor, nombre);
+			this.ultimo = new NodoCD(valor);
 			this.primero = this.ultimo;
 		}else
 			if (this.primero == this.ultimo) {
 				NodoCD actual = this.primero;
-				actual.setSiguiente(new NodoCD(valor, nombre));
+				actual.setSiguiente(new NodoCD(valor));
 				this.ultimo = this.ultimo.getSiguiente();
 				this.ultimo.setAnterior(actual);
 
 								
 			}else{
 				NodoCD actual = this.ultimo;
-				actual.setSiguiente(new NodoCD (valor, nombre));
+				actual.setSiguiente(new NodoCD (valor));
 				this.ultimo = this.ultimo.getSiguiente();
 				this.ultimo.setAnterior(actual);
 				this.ultimo.setSiguiente(this.primero);
@@ -108,22 +108,22 @@ public class ListaDC {
 			actual = actual.getAnterior();
 		}
 	}
-	public void insertarInicio (Lista valor, String nombre) {
+	public void insertarInicio (Lista valor) {
 		if (this.primero == null) {
-			this.primero = new NodoCD(valor, nombre);
+			this.primero = new NodoCD(valor);
 			this.ultimo = this.primero;
 			
 		} else 
 			if (this.primero == this.ultimo) {
 				NodoCD actual = this.ultimo;	
-				actual.setAnterior(new NodoCD(valor, nombre));
+				actual.setAnterior(new NodoCD(valor));
 				this.primero = this.primero.getAnterior(); 
 				this.primero.setSiguiente(actual);
 
 				 
 		}else { 
 			NodoCD actual = this.primero;
-			actual.setAnterior(new NodoCD (valor, nombre));
+			actual.setAnterior(new NodoCD (valor));
 			this.primero = this.primero.getAnterior(); 
 			this.primero.setSiguiente(actual);
 			this.primero.setAnterior(this.ultimo);

@@ -10,23 +10,23 @@ import javafx.scene.control.TreeItem;
 public class ListaD {
 	private NodoD primero;
 	private NodoD ultimo;
-//	public TreeItem<String> rama;
-// 
-//	public TreeItem<String> getRama() {
-//		return rama;
-//	}
-//
-//	public void setRama(TreeItem<String> rama) {
-//		this.rama = rama;
-//	}
+	public TreeItem<String> rama;
+ 
+	public TreeItem<String> getRama() {
+		return rama;
+	}
+
+	public void setRama(TreeItem<String> rama) {
+		this.rama = rama;
+	}
 
 /**
   * constructor
   */
-	public ListaD() {
+	public ListaD(String nombre) {
 		this.primero = null; 
 		this.ultimo = null;
-//		this.rama = new TreeItem<String>(nombre);
+		this.rama = new TreeItem<String>(nombre);
 	}
 
 	/**
@@ -58,21 +58,21 @@ public class ListaD {
 	 * inserta al final y enlaza doble la lista
 	 * @param valor
 	 */
-	public void insertarFinal(ListaDC valor, String nombre) {
+	public void insertarFinal(ListaDC valor) {
 		if (this.ultimo == null) {
-			this.ultimo = new NodoD(valor, nombre);
+			this.ultimo = new NodoD(valor);
 			this.primero = this.ultimo;
 		}else
 			if (this.primero == this.ultimo) {
 				NodoD actual = this.primero;
-				actual.setSiguiente(new NodoD(valor, nombre));
+				actual.setSiguiente(new NodoD(valor));
 				this.ultimo = this.ultimo.getSiguiente();
 				this.ultimo.setAnterior(actual);
 
 								
 			}else{
 				NodoD actual = this.ultimo;
-				actual.setSiguiente(new NodoD (valor, nombre));
+				actual.setSiguiente(new NodoD (valor));
 				this.ultimo = this.ultimo.getSiguiente();
 				this.ultimo.setAnterior(actual);
 
@@ -139,22 +139,22 @@ public class ListaD {
 	  * inserta al inicio y enlaza doble la lista
 	  * @param valor
 	  */
-	public void insertarInicio (ListaDC valor, String nombre) {
+	public void insertarInicio (ListaDC valor) {
 		if (this.primero == null) {
-			this.primero = new NodoD(valor, nombre);
+			this.primero = new NodoD(valor);
 			this.ultimo = this.primero;
 			
 		} else 
 			if (this.primero == this.ultimo) {
 				NodoD actual = this.ultimo;	
-				actual.setAnterior(new NodoD(valor, nombre));
+				actual.setAnterior(new NodoD(valor));
 				this.primero = this.primero.getAnterior(); 
 				this.primero.setSiguiente(actual);
 
 				 
 		}else { 
 			NodoD actual = this.primero;
-			actual.setAnterior(new NodoD (valor, nombre));
+			actual.setAnterior(new NodoD (valor));
 			this.primero = this.primero.getAnterior();
 			this.primero.setSiguiente(actual);
 
