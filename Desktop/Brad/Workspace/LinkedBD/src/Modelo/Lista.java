@@ -1,5 +1,8 @@
 package Modelo;
-import Interfaz.*;
+
+import org.json.simple.JSONObject;
+
+import javafx.scene.control.TreeItem;
  /**
   * 
   * @author Bradly Valverde F
@@ -7,14 +10,34 @@ import Interfaz.*;
   */
 public class Lista {
 	private Nodo primero;
+	public ListaAtributos LA;
+	public TreeItem<String> rama;
  
 	/**
 	 * constructor 
 	 */
-	public Lista() {
+	public Lista(String nombre) {
 		this.primero = null;
+		this.rama = new TreeItem<String>(nombre);
+		this.LA = new ListaAtributos();
 	}
-	
+	 
+	public TreeItem<String> getRama() {
+		return rama;
+	}
+
+	public void setRama(TreeItem<String> rama) {
+		this.rama = rama;
+	}
+
+	public ListaAtributos getLA() {
+		return LA;
+	}
+
+	public void setLA(ListaAtributos lA) {
+		LA = lA;
+	}
+
 	/**
 	 * para verificar que la lista esta vaica
 	 * @return boolean de que si la lista es vacia
@@ -40,29 +63,40 @@ public class Lista {
 
 	/**
 	 * inserta un valor al final de la lista
-	 * @param valor
+	 * @param obj
 	 */
-	public void insertarFinal(String valor) {
+	public void insertarFinal(JSONObject obj) {
 		if (this.primero == null) {
-			this.primero = new Nodo(valor);
+			this.primero = new Nodo(obj);
 		} else {
 			Nodo actual = this.primero;
 			while (actual.getSiguiente() != null) {
 				actual = actual.getSiguiente();
 			}
-			actual.setSiguiente(new Nodo(valor));
+			actual.setSiguiente(new Nodo(obj));
 		}
 
 	}
-
-	/**
-	 * imprime la lista 
-	 */
-	public void imprimir() {
+	public void eliminar(int contador) {
+		int local = 1;
 		Nodo actual = this.primero;
-		while (actual != null) {
-			System.out.println(actual.getValor());
-			actual = actual.getSiguiente();
+		Nodo actual1 = this.primero.getSiguiente();
+		if (contador == 0) {
+			this.primero = this.primero.getSiguiente();
+		}else{
+			while(actual1 != null) {
+					if(local == contador) {
+						actual.setSiguiente(actual1.getSiguiente());
+						break;
+				}else{
+					actual = actual.getSiguiente();
+					actual1 = actual1.getSiguiente();
+					local = local + 1; 
+						
+					}
+			
+			}
+			
 		}
 	}
 
@@ -70,7 +104,7 @@ public class Lista {
 	 * inserta un valor al inicio
 	 * @param valor
 	 */
-	public void insertarInicio (String valor) {
+	public void insertarInicio (JSONObject valor) {
 		if (this.primero == null) {
 			this.primero = new Nodo(valor);
 		} else {

@@ -1,5 +1,5 @@
 package Modelo;
-import Interfaz.*;
+
 import javafx.scene.control.TreeItem;
 /**
  * clase lista doble

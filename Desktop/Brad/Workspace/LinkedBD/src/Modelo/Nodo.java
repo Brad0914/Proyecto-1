@@ -1,21 +1,15 @@
 package Modelo;
-import Interfaz.*;
+
+import org.json.simple.JSONObject;
+
 public class Nodo {
 	private Nodo siguiente;
-	private String valor; 
-	public String nombre;
+	private JSONObject valor; 
 
-	public Nodo(String valor) { 
-		this.valor = valor;
+	public Nodo(JSONObject obj) { 
+		this.valor = obj;
 		this.siguiente = null;
 	}
-
-	public Nodo(String valor, Nodo siguiente) {
-		this(valor);
-		this.siguiente = siguiente;
-	}
-
-
 
 
 	public Nodo getSiguiente() {
@@ -26,18 +20,11 @@ public class Nodo {
 		this.siguiente = siguiente;
 	}
 
-	public String getValor() {
+	public JSONObject getValor() {
 		return valor;
 	}
 
-	public void setValor(String valor) {
+	public void setValor(JSONObject valor) {
 		this.valor = valor;
-	}
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 }

@@ -1,30 +1,23 @@
  package Modelo;
- import Interfaz.*;
-import javafx.scene.control.TreeItem;
+
 public class NodoCD {
 	private NodoCD siguiente; 
 	private NodoCD anterior;
 	private Lista valor;
-//	public TreeItem<String> rama;
+
 
 	public NodoCD(Lista valor) {
-//		this.rama = new TreeItem<>(rama);
+
 		this.valor = valor;
 	}
 
-//	public TreeItem<String> getRama() {
-//		return rama;
-//	}
-//
-//	public void setRama(TreeItem<String> rama) {
-//		this.rama = rama; 
-//	}
+
 
 	public NodoCD(Lista valor, NodoCD siguiente, NodoCD anterior) {
 		this.valor = valor;
 		this.siguiente = siguiente;
 		this.anterior = anterior;
-//		this.rama = rama;
+
 	}
 
 	public NodoCD getSiguiente() { 
